@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "jump-spin-lab",
+    "name": "Jump & Spin Lab",
     "slug": "jump-spin-lab",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMotionUsageDescription": "Jump & Spin Lab uses the motion sensors to measure your jumps, spins, reaction and balance."
+      },
+      "bundleIdentifier": "com.thapananthongpak.jumpspinlab",
+      "appleTeamId": "4UQ96JPUX2"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +21,28 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.HIGH_SAMPLING_RATE_SENSORS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Jump & Spin Lab uses the motion sensors to measure your jumps, spins, reaction and balance."
+        }
+      ],
+      "expo-font"
+    ],
+    "scheme": "jumpspinlab",
+    "experiments": {
+      "typedRoutes": false
     }
   }
 }
